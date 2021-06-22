@@ -3,17 +3,17 @@
 - [**Programacion Orientada a Objetos**](#programacion-orientada-a-objetos)
   - [**Bloques de construcción de POO**](#bloques-de-construcción-de-poo)
     - [Clases](#clases)
-    - [**Objetos**](#objetos)
-    - [Mensajes](#mensajes)
-    - [**Encapsulamiento:**](#encapsulamiento)
-      - [Tell, dont ask](#tell-dont-ask)
-      - [Visibilidad](#visibilidad)
-    - [**Relaciones entre Objetos:**](#relaciones-entre-objetos)
-      - [**Dendencia y Asociacion:**](#dendencia-y-asociacion)
       - [**Relaciones entre clases:**](#relaciones-entre-clases)
         - [**Herencia:**](#herencia)
         - [**Clases Abstractas:**](#clases-abstractas)
         - [**Metodo Abstracto:**](#metodo-abstracto)
+    - [**Objetos**](#objetos)
+      - [**Relaciones entre Objetos:**](#relaciones-entre-objetos)
+        - [**Dendencia y Asociacion:**](#dendencia-y-asociacion)
+    - [Mensajes](#mensajes)
+    - [**Encapsulamiento:**](#encapsulamiento)
+      - [Tell, dont ask](#tell-dont-ask)
+      - [Visibilidad](#visibilidad)
   - [Diseño por Contrato](#diseño-por-contrato)
     - [Firmas de Metodos](#firmas-de-metodos)
     - [Precondiciones](#precondiciones)
@@ -49,6 +49,30 @@ Una clase es una especie de "plantilla" en la que se definen los atributos y mé
 - **Metodo:** Llamamos método a la implementación de la respuesta de un objeto a un mensaje.
 - **Atributo:** variable interna del objeto que sirve para almacenar parte del estado del mismo.
 
+#### **Relaciones entre clases:**
+
+En los lenguajes con clases, las relaciones entre objetos nos llevan a relaciones entre clases.
+
+##### **Herencia:**
+
+La herencia es una relación entre clases, por la cual se define que una clase puede ser un caso particular de otra. A la clase más general la llamamos madre y a la más patricular hija. Cuando hay herencia, todas las instancias de la clase hija son también instancias de la clase madre.
+
+- **Programamos por diferencia:** cuando indicamos que parte de la implementación de un objeto está definida en otro objeto, y por lo tanto sólo implementamos las diferencias específicas.
+- **Redefinicion:** Los lenguajes de programación que tienen clases y herencia, permiten volver a definir métodos que ya estuvieran definidos en la clase base en sus clases derivadas
+  - La redefinición existe para definir un mismo comportamiento en una clase derivada, para el mismo mensaje de la clase base. Por lo tanto, la semántica o significado del mensaje se debe mantener. Si así no fuera, conviene definir un método diferente, con nombre diferente.
+
+##### **Clases Abstractas:**
+
+Una clase es abstracta cuando no puede tener instancias en forma directa, habitualmente debido a que sus clases descendientes cubren todos los casos posibles.
+
+Cuando queramos indicar una clase que no es abstracta (que puede tener instancias) la llamaremos clase concreta.
+
+##### **Metodo Abstracto:**
+
+Un método es abstracto cuando no lo implementamos en una clase, pero sí deseamos que todas las clases descendientes puedan entender el mensaje.
+
+Cuando queramos indicar un método que no es abstracto (que tiene implementación) lo llamaremos método concreto.
+
 ### **Objetos**
 
 Una entidad que existe en tiempo de ejecución y que tiene comportamiento. Son capaces de recibir y mandar mensajes.
@@ -63,6 +87,18 @@ Los objetos tienen:
   - Un cambio de estado en el objeto receptor del mensaje. 
   - La devolución del estado de un objeto, en su totalidad o parcialmente.
   - El envío de un mensaje desde el objeto receptor a otro objeto (delegación).
+
+#### **Relaciones entre Objetos:**
+
+##### **Dendencia y Asociacion:**
+
+Un objeto depende de otro cuando debe conocerlo para poder enviarle un mensaje.Todo objeto cliente depende de su servidor. La dependencia puede venir dada de tres maneras:
+
+- Porque el objeto servidor se envía como argumento.
+- Porque el objeto servidor se obtiene como respuesta al envío de un mensaje a otro objeto.
+- Porque el objeto cliente tiene una referencia al servidor.
+
+La asociacion es una forma de dependencia en la que el objeto cliente tiene almacenada una referencia al objeto servidor.
 
 ### Mensajes
 
@@ -93,42 +129,6 @@ Los lenguajes de programación orientados a objetos prevén distintos tipos de v
 - **Protegida:** el método, atributo o clase en cuestión se puede utilizar solamente dentro desu clase o una clase descendiente de ella. 
 
 Un buen manejo de la visibilidad permite que el programador haga una buena administración del encapsulamiento, dando visibilidad solamente a aquellos elementos que necesitan ser usados desde afuera.
-
-### **Relaciones entre Objetos:**
-
-#### **Dendencia y Asociacion:**
-
-Un objeto depende de otro cuando debe conocerlo para poder enviarle un mensaje.Todo objeto cliente depende de su servidor. La dependencia puede venir dada de tres maneras:
-
-- Porque el objeto servidor se envía como argumento.
-- Porque el objeto servidor se obtiene como respuesta al envío de un mensaje a otro objeto.
-- Porque el objeto cliente tiene una referencia al servidor.
-
-La asociacion es una forma de dependencia en la que el objeto cliente tiene almacenada una referencia al objeto servidor.
-
-#### **Relaciones entre clases:**
-
-En los lenguajes con clases, las relaciones entre objetos nos llevan a relaciones entre clases.
-
-##### **Herencia:**
-
-La herencia es una relación entre clases, por la cual se define que una clase puede ser un caso particular de otra. A la clase más general la llamamos madre y a la más patricular hija. Cuando hay herencia, todas las instancias de la clase hija son también instancias de la clase madre.
-
-- **Programamos por diferencia:** cuando indicamos que parte de la implementación de un objeto está definida en otro objeto, y por lo tanto sólo implementamos las diferencias específicas.
-- **Redefinicion:** Los lenguajes de programación que tienen clases y herencia, permiten volver a definir métodos que ya estuvieran definidos en la clase base en sus clases derivadas
-  - La redefinición existe para definir un mismo comportamiento en una clase derivada, para el mismo mensaje de la clase base. Por lo tanto, la semántica o significado del mensaje se debe mantener. Si así no fuera, conviene definir un método diferente, con nombre diferente.
-
-##### **Clases Abstractas:**
-
-Una clase es abstracta cuando no puede tener instancias en forma directa, habitualmente debido a que sus clases descendientes cubren todos los casos posibles.
-
-Cuando queramos indicar una clase que no es abstracta (que puede tener instancias) la llamaremos clase concreta.
-
-##### **Metodo Abstracto:**
-
-Un método es abstracto cuando no lo implementamos en una clase, pero sí deseamos que todas las clases descendientes puedan entender el mensaje.
-
-Cuando queramos indicar un método que no es abstracto (que tiene implementación) lo llamaremos método concreto.
 
 ## Diseño por Contrato
 
