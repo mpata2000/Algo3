@@ -11,13 +11,13 @@ La POO plantea los siguientes 3 pasos para resolver un problema:
 
 ## Objetos
 
-una entidad que existe en tiempo de ejecución y que tiene comportamiento. Son capaces de recibir y mandar mensajes.
+Una entidad que existe en tiempo de ejecución y que tiene comportamiento. Son capaces de recibir y mandar mensajes.
 
 Los objetos tienen:
 
 - **Identidad:** es lo que distingue un objeto de otro.
 - **Estado:** la situacion en que se encuntra un objeto. El estado de un objeto puede cambiar a traves del tiempo.
-- Los cambios de estado suelen ser por un mensaje recibido por el objeto
+  - Los cambios de estado suelen ser por un mensaje recibido por el objeto
   - Generalmente privado, o salvo que se necesite que se pueda mediante un mensaje
 - **Comportamiento:** El comportamiento de un objeto está compuesto por las respuestas a los mensajes que recibe un objeto, que a su vez pueden provocar:
   - Un cambio de estado en el objeto receptor del mensaje. 
@@ -149,8 +149,7 @@ Con todo esto definimos los métodos de la clase PruebasX:
 
 Diagrama de como Funciona:
 
-```mermaid
-classDiagram
+```plantuml
 class TestCase{
     + setUp()
     + tearDown()
@@ -166,14 +165,13 @@ class MisPruebas{
 }
 
 TestCase <|-- MisPruebas
-MisPruebas <-- TestSuite
+MisPruebas <-left- TestSuite
 
 ```
 
-```mermaid
-sequenceDiagram
+```plantuml
 usuario --> SUnit: ejecutarPruebas(MisPruebas)
-SUnit --> MisPruebas: <<create>>
+SUnit --> MisPruebas:  <<create>>
 SUnit --> MisPruebas: test01()
 MisPruebas --> MisPruebas: assert(condicion)
 SUnit --> MisPruebas: test02()
