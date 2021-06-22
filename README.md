@@ -5,6 +5,7 @@
   - [**Bloques de construcción de POO**](#bloques-de-construcción-de-poo)
     - [**Encapsulamiento:**](#encapsulamiento)
       - [Tell, dont ask](#tell-dont-ask)
+      - [Visibilidad](#visibilidad)
     - [**Relaciones entre Objetos:**](#relaciones-entre-objetos)
       - [**Dendencia y Asociacion:**](#dendencia-y-asociacion)
       - [**Relaciones entre clases:**](#relaciones-entre-clases)
@@ -24,6 +25,9 @@
     - [Implementacion de Metodos y Clases Abstractas](#implementacion-de-metodos-y-clases-abstractas)
     - [Implementacion de Testing](#implementacion-de-testing)
       - [SUnit](#sunit)
+  - [UML](#uml)
+    - [Driagrama de Clase](#driagrama-de-clase)
+    - [Diagrama de Secuencia](#diagrama-de-secuencia)
 
 La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de clases y objetos . Se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (generalmente llamadas clases), que se utilizan para crear instancias individuales de objetos.
 
@@ -69,6 +73,14 @@ Las razones de ser del encapsulamiento son varias, entre ellas:
 #### Tell, dont ask
 
 Un colorario del encapsulamiento que que implica que los objetos deben manejar su propio comportamiento, sin que nosotros manipulemos su estado desde afuera.
+
+#### Visibilidad
+
+Los lenguajes de programación orientados a objetos prevén distintos tipos de visibilidad de los elementos del lenguaje: métodos, atributos y clases. Habitualmente hay tres niveles de visibilidad:
+
+- **Pública:** el método, atributo o clase en cuestión se puede utilizar en cualquier parte del programa.
+- **Privada:** el método, atributo o clase en cuestión se puede utilizar solamente dentro de su clase.
+- **Protegida:** el método, atributo o clase en cuestión se puede utilizar solamente dentro desu clase o una clase descendiente de ella. 
 
 ### **Relaciones entre Objetos:**
 
@@ -235,3 +247,9 @@ Diagrama de como Funciona:
 ![Diagrama de Clase de SUnit](./Images/ClassDiagramPruebasSUnit.png)
 
 ![Diagrama de Secuencia de ejecucion de Pruebas SUnit](./Images/SeqDiagramDeEjecucionDePruebasSUnit.png)
+
+## UML
+
+### Driagrama de Clase
+
+### Diagrama de Secuencia
