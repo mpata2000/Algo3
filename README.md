@@ -149,33 +149,6 @@ Con todo esto definimos los métodos de la clase PruebasX:
 
 Diagrama de como Funciona:
 
-```plantuml
-class TestCase{
-    + setUp()
-    + tearDown()
-    + assert(condicion: Boolean)
-    + deny(condicion: Boolean)
-    + shouldRaise(bloque: BlockClosure, excepcion: Error)
-}
+![Diagrama de Clase de SUnit](./Images/ClassDiagramPruebasSUnit.png)
 
-class MisPruebas{
-    + test01()
-    + test02()
-    + test03()
-}
-
-TestCase <|-- MisPruebas
-MisPruebas <-left- TestSuite
-
-```
-
-```plantuml
-usuario --> SUnit: ejecutarPruebas(MisPruebas)
-SUnit --> MisPruebas:  <<create>>
-SUnit --> MisPruebas: test01()
-MisPruebas --> MisPruebas: assert(condicion)
-SUnit --> MisPruebas: test02()
-MisPruebas --> MisPruebas: deny(condicion)
-SUnit --> MisPruebas: test03()
-MisPruebas --> MisPruebas: shouldRaise(codigo, excepcion)
-```
+![Diagrama de Secuencia de ejecucion de Pruebas SUnit](./Images/SeqDiagramDeEjecucionDePruebasSUnit.png)
