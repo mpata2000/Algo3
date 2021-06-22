@@ -92,6 +92,8 @@ Los lenguajes de programación orientados a objetos prevén distintos tipos de v
 - **Privada:** el método, atributo o clase en cuestión se puede utilizar solamente dentro de su clase.
 - **Protegida:** el método, atributo o clase en cuestión se puede utilizar solamente dentro desu clase o una clase descendiente de ella. 
 
+Un buen manejo de la visibilidad permite que el programador haga una buena administración del encapsulamiento, dando visibilidad solamente a aquellos elementos que necesitan ser usados desde afuera.
+
 ### **Relaciones entre Objetos:**
 
 #### **Dendencia y Asociacion:**
