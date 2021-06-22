@@ -31,7 +31,7 @@ Los objetos tienen:
   - El objeto que envía el mensaje se llama **objeto cliente** y quien recibe el mensaje se llama 
   
 - **Metodo:** Llamamos método a la implementación de la respuesta de un objeto a un mensaje.
-- **Atributo:** variable interna del objeto que sirve para almacenar parte del estado del mismo. 
+- **Atributo:** variable interna del objeto que sirve para almacenar parte del estado del mismo.
 
 ### **Encapsulamiento:**
 
@@ -53,8 +53,7 @@ En los lenguajes con clases, las relaciones entre objetos nos llevan a relacione
 
 ##### **Herencia:**
 
-La herencia es una relación entre clases, por la cual se define que una clase puede ser un caso particular de otra. A la clase más general la llamamos madre y a la más patricular hija. Cuando hay herencia, todas las instancias de la clase hija son también instancias de la clase 
-madre.
+La herencia es una relación entre clases, por la cual se define que una clase puede ser un caso particular de otra. A la clase más general la llamamos madre y a la más patricular hija. Cuando hay herencia, todas las instancias de la clase hija son también instancias de la clase madre.
 
 - **Programamos por diferencia:** cuando indicamos que parte de la implementación de un objeto está definida en otro objeto, y por lo tanto sólo implementamos las diferencias específicas.
 - **Redefinicion:** Los lenguajes de programación que tienen clases y herencia, permiten volver a definir métodos que ya estuvieran definidos en la clase base en sus clases derivadas
@@ -71,6 +70,55 @@ Cuando queramos indicar una clase que no es abstracta (que puede tener instancia
 Un método es abstracto cuando no lo implementamos en una clase, pero sí deseamos que todas las clases descendientes puedan entender el mensaje.
 
 Cuando queramos indicar un método que no es abstracto (que tiene implementación) lo llamaremos método concreto.
+
+## Diseño por Contrato
+
+La idea primigenia del diseño por contrato es, entonces, que un objeto servidor brinda servicios a objetos clientes sobre la base de un contrato que ambos se comprometen a cumplir.
+
+Esta formado por cuatro elementos fundamentales:
+
+- firmas de métodos.
+- precondiciones.
+- postcondiciones.
+- invariantes.
+
+### Firmas de Metodos
+
+Las firmas de los métodos son las que determinan cómo hacer para pedirles servicios a los objetos.
+
+Al conjunto de las firmas de métodos se lo suele llamar interfaz o protocolo del objeto, porque es lo que permite saber qué servicios expone y cómo dialogar con él. **No confundir con la implementacion de una Interfas**
+
+### Precondiciones
+
+Las precondiciones expresan en qué estado debe estar el medio ambiente antes de que un objeto cliente le envíe un mensaje a un receptor.
+
+Si una precondición no se cumple, el que no está cumpliendo el contrato es el cliente. Por lo tanto, el objeto receptor del mensaje, lo único que puede hacer es avisarle de ese incumplimiento al cliente y no seguir con la ejecución del método. Habitualmente, los lenguajes de POO tienen un mecanismo llamado excepciones.
+
+#### Excepciones
+
+Una excepción es un objeto que se usa para comunicar una situación excepcional desde un entorno que la detecta al ámbito desde el cual fue invocado.
+
+Notemos que hablamos de excepciones cuando el problema no se puede resolver en un determinado contexto. La idea es que cuando surge una excepción no hay forma de continuar y se debe elevar la misma a un contexto de nivel superior para que resuelva el inconveniente
+
+### Postcondiciones
+
+En términos estrictos, el conjunto de postcondiciones expresa el estado en que debe quedar el medio como consecuencia de la ejecución de un método. En términos operativos, es la respuesta ante la recepción del mensaje.
+
+El cumplimiento de las postcondiciones es responsabilidad del receptor. Si una postcondición no se cumple se debe a que el método está mal programado por quien deba implementar el objeto receptor. Por lo tanto, el cumplimiento de una postcondición se debe chequear con una Prueba Unitaria
+
+### Invariantes
+
+Los invariantes son condiciones que debe cumplir un objeto durante toda su existencia.
+
+El cumplimiento de los invariantes es responsabilidad de todos los métodos de un objeto, desde su creación. De alguna manera, pueden considerarse precondiciones y postcondiciones de todos los métodos.
+
+En general, suelen expresarse en forma de precondiciones o postcondiciones.
+
+### El procedimiento del diseño por contrato
+
+![Pasos deDiseño por Contrato](./Images/DisenioPorContratoDiagrama.png)
+
+## SOLID
 
 ## Implementaciones de POO
 
