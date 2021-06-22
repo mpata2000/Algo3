@@ -289,6 +289,15 @@ Class Nombre{
 
 #### Flechas UML
 
+|Relacion|UML|Situacion|
+|--------|---|------------------|
+|Dependencia| ..>  | Una clase obtiene información de otra |
+|Asociacion| -->  |Cada instancia de una clase contiene una relación con una instancia de la otra |
+|Agregacion| o--  | Las instancias de una clase son partes de una instancia de otra  |
+|Composicion| *--  |Las instancias de una clase están contenidas en una instancia de otra |
+|Herencia| <\|-- | Cumple "es un" |
+|Impl. de Interfaz| ..\|>  | |
+
 #### Visibilidad UML
 
 | Signo | Significado |
