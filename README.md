@@ -2,7 +2,7 @@
 
 - [**Programacion Orientada a Objetos**](#programacion-orientada-a-objetos)
   - [**Bloques de construcción de POO**](#bloques-de-construcción-de-poo)
-    - [Clases](#clases)
+    - [**Clases**](#clases)
       - [**Relaciones entre clases:**](#relaciones-entre-clases)
         - [**Herencia:**](#herencia)
         - [**Clases Abstractas:**](#clases-abstractas)
@@ -10,25 +10,31 @@
     - [**Objetos**](#objetos)
       - [**Relaciones entre Objetos:**](#relaciones-entre-objetos)
         - [**Dendencia y Asociacion:**](#dendencia-y-asociacion)
-    - [Mensajes](#mensajes)
+    - [**Mensajes**](#mensajes)
     - [**Encapsulamiento:**](#encapsulamiento)
-      - [Tell, dont ask](#tell-dont-ask)
-      - [Visibilidad](#visibilidad)
-  - [Diseño por Contrato](#diseño-por-contrato)
-    - [Firmas de Metodos](#firmas-de-metodos)
-    - [Precondiciones](#precondiciones)
-      - [Excepciones](#excepciones)
-    - [Postcondiciones](#postcondiciones)
-    - [Invariantes](#invariantes)
-    - [El procedimiento del diseño por contrato](#el-procedimiento-del-diseño-por-contrato)
+      - [**Tell, dont ask**](#tell-dont-ask)
+      - [**Visibilidad**](#visibilidad)
+  - [**Diseño por Contrato**](#diseño-por-contrato)
+    - [**Firmas de Metodos**](#firmas-de-metodos)
+    - [**Precondiciones**](#precondiciones)
+      - [**Excepciones**](#excepciones)
+    - [**Postcondiciones**](#postcondiciones)
+    - [**Invariantes**](#invariantes)
+    - [**El procedimiento del diseño por contrato**](#el-procedimiento-del-diseño-por-contrato)
   - [SOLID](#solid)
-  - [Implementaciones de POO](#implementaciones-de-poo)
-    - [Implementacion de Herencia:](#implementacion-de-herencia)
-    - [Implementacion de Metodos y Clases Abstractas](#implementacion-de-metodos-y-clases-abstractas)
+  - [**Implementaciones de POO**](#implementaciones-de-poo)
+    - [Implementacion de Visibilidad](#implementacion-de-visibilidad)
+    - [**Implementacion de Herencia:**](#implementacion-de-herencia)
+    - [**Implementacion de Metodos y Clases Abstractas**](#implementacion-de-metodos-y-clases-abstractas)
     - [Implementacion de Testing](#implementacion-de-testing)
       - [SUnit](#sunit)
   - [UML](#uml)
     - [Driagrama de Clase](#driagrama-de-clase)
+      - [Flechas UML](#flechas-uml)
+      - [Visibilidad UML](#visibilidad-uml)
+      - [Clases y Metodos Abtractos UML](#clases-y-metodos-abtractos-uml)
+      - [Interfaces UML](#interfaces-uml)
+      - [Multiplicidad UML](#multiplicidad-uml)
     - [Diagrama de Secuencia](#diagrama-de-secuencia)
 
 La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de clases y objetos . Se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (generalmente llamadas clases), que se utilizan para crear instancias individuales de objetos los cuales envian y reciven mensajes.
@@ -42,7 +48,7 @@ La POO plantea los siguientes 3 pasos para resolver un problema:
 
 ## **Bloques de construcción de POO**
 
-### Clases
+### **Clases**
 
 Una clase es una especie de "plantilla" en la que se definen los atributos y métodos predeterminados de un tipo de objeto.
 
@@ -50,8 +56,6 @@ Una clase es una especie de "plantilla" en la que se definen los atributos y mé
 - **Atributo:** variable interna del objeto que sirve para almacenar parte del estado del mismo.
 
 #### **Relaciones entre clases:**
-
-En los lenguajes con clases, las relaciones entre objetos nos llevan a relaciones entre clases.
 
 ##### **Herencia:**
 
@@ -100,7 +104,7 @@ Un objeto depende de otro cuando debe conocerlo para poder enviarle un mensaje.T
 
 La asociacion es una forma de dependencia en la que el objeto cliente tiene almacenada una referencia al objeto servidor.
 
-### Mensajes
+### **Mensajes**
 
 Un mensaje es la interacción entre un objeto que pide un servicio y otro que lo brinda.
 
@@ -116,11 +120,11 @@ Las razones de ser del encapsulamiento son varias, entre ellas:
 - Puede haber implementaciones alternativas para una misma operación. 
 - En el futuro, podemos cambiar una implementación por otra, ambas correctas, sin afectar al cliente que utiliza el servicio.
 
-#### Tell, dont ask
+#### **Tell, dont ask**
 
 Un colorario del encapsulamiento que que implica que los objetos deben manejar su propio comportamiento, sin que nosotros manipulemos su estado desde afuera.
 
-#### Visibilidad
+#### **Visibilidad**
 
 Los lenguajes de programación orientados a objetos prevén distintos tipos de visibilidad de los elementos del lenguaje: métodos, atributos y clases. Habitualmente hay tres niveles de visibilidad:
 
@@ -130,7 +134,7 @@ Los lenguajes de programación orientados a objetos prevén distintos tipos de v
 
 Un buen manejo de la visibilidad permite que el programador haga una buena administración del encapsulamiento, dando visibilidad solamente a aquellos elementos que necesitan ser usados desde afuera.
 
-## Diseño por Contrato
+## **Diseño por Contrato**
 
 La idea primigenia del diseño por contrato es, entonces, que un objeto servidor brinda servicios a objetos clientes sobre la base de un contrato que ambos se comprometen a cumplir.
 
@@ -141,31 +145,31 @@ Esta formado por cuatro elementos fundamentales:
 - postcondiciones.
 - invariantes.
 
-### Firmas de Metodos
+### **Firmas de Metodos**
 
 Las firmas de los métodos son las que determinan cómo hacer para pedirles servicios a los objetos.
 
 Al conjunto de las firmas de métodos se lo suele llamar interfaz o protocolo del objeto, porque es lo que permite saber qué servicios expone y cómo dialogar con él. **No confundir con la implementacion de una Interfas**
 
-### Precondiciones
+### **Precondiciones**
 
 Las precondiciones expresan en qué estado debe estar el medio ambiente antes de que un objeto cliente le envíe un mensaje a un receptor.
 
 Si una precondición no se cumple, el que no está cumpliendo el contrato es el cliente. Por lo tanto, el objeto receptor del mensaje, lo único que puede hacer es avisarle de ese incumplimiento al cliente y no seguir con la ejecución del método. Habitualmente, los lenguajes de POO tienen un mecanismo llamado excepciones.
 
-#### Excepciones
+#### **Excepciones**
 
 Una excepción es un objeto que se usa para comunicar una situación excepcional desde un entorno que la detecta al ámbito desde el cual fue invocado.
 
 Notemos que hablamos de excepciones cuando el problema no se puede resolver en un determinado contexto. La idea es que cuando surge una excepción no hay forma de continuar y se debe elevar la misma a un contexto de nivel superior para que resuelva el inconveniente
 
-### Postcondiciones
+### **Postcondiciones**
 
 En términos estrictos, el conjunto de postcondiciones expresa el estado en que debe quedar el medio como consecuencia de la ejecución de un método. En términos operativos, es la respuesta ante la recepción del mensaje.
 
 El cumplimiento de las postcondiciones es responsabilidad del receptor. Si una postcondición no se cumple se debe a que el método está mal programado por quien deba implementar el objeto receptor. Por lo tanto, el cumplimiento de una postcondición se debe chequear con una Prueba Unitaria
 
-### Invariantes
+### **Invariantes**
 
 Los invariantes son condiciones que debe cumplir un objeto durante toda su existencia.
 
@@ -173,15 +177,17 @@ El cumplimiento de los invariantes es responsabilidad de todos los métodos de u
 
 En general, suelen expresarse en forma de precondiciones o postcondiciones.
 
-### El procedimiento del diseño por contrato
+### **El procedimiento del diseño por contrato**
 
 ![Pasos deDiseño por Contrato](./Images/DisenioPorContratoDiagrama.png)
 
 ## SOLID
 
-## Implementaciones de POO
+## **Implementaciones de POO**
 
-### Implementacion de Herencia:
+### Implementacion de Visibilidad
+
+### **Implementacion de Herencia:**
 
 En smalltalk:
 
@@ -195,9 +201,9 @@ En Java:
     class ValorInvalido extends RuntimeException { } 
 ```
 
-### Implementacion de Metodos y Clases Abstractas
+### **Implementacion de Metodos y Clases Abstractas**
 
-En Java, la declaración de un método como abstracto que hace añadiendo la palabra abstract en su firma, y cerrando con un punto y coma en vez de un bloque de código. He aquí un ejemplo: 
+En Java, la declaración de un método como abstracto que hace añadiendo la palabra abstract en su firma, y cerrando con un punto y coma en vez de un bloque de código. He aquí un ejemplo:
 
 ```java
     public abstract void extraer (int monto); 
@@ -269,5 +275,68 @@ Usos:
 - Model Driven Development(No muy usado)
 
 ### Driagrama de Clase
+
+```uml
+Class Nombre{
+    -atributoDeIntancia:Tipo
+    -{static}atributoDeClase
+    +metodoDeInstancia(p1:Tipo,p2:Tipo):Retorno
+    +{static}metodoDeClase()
+}
+```
+
+![](./Images/ClassDiagramClaseUML.png)
+
+#### Flechas UML
+
+#### Visibilidad UML
+
+| Signo | Significado |
+|-------|-------------|
+|+| Visibilidad Publica |
+|-| Visbilidad Privada |
+|#| Visibilidad Protegida |
+|~| Visibilidad de Paquete |
+
+```uml
+    Class Nombre{
+        -atributoPrivado
+        +atributoPublico
+        #atributoProtegido
+        -metodoPrivado()
+        +metodoPublico()
+        #metodoProtegido()
+    }
+```
+
+![](./Images/ClassDiagramVisbilidadUML.png)
+
+#### Clases y Metodos Abtractos UML
+
+```uml
+    Class ClaseConcreta{
+        + metodoConcreto()
+    }
+
+    Abstract Class ClaseAbstracta{
+        + {Abstract}metodoAbstracto()
+    }
+```
+
+![](./Images/ClassDiagramConcretavsAbstracta.png)
+
+#### Interfaces UML
+
+
+#### Multiplicidad UML
+
+|Multiplicidad|Significado|
+|-|-|
+|1|Uno y solo uno|
+|0..1|Cero o Uno|
+|n..m|Desde **n** hasta **m**|
+|*|Cero o Varios|
+|0..*|Cero o Varios|
+|1..*|Uno o Varios|
 
 ### Diagrama de Secuencia
