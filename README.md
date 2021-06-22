@@ -1,4 +1,28 @@
-# Programacion Orientada a Objetos
+# **Programacion Orientada a Objetos**
+
+- [**Programacion Orientada a Objetos**](#programacion-orientada-a-objetos)
+  - [**Objetos**](#objetos)
+  - [**Bloques de construcción de POO**](#bloques-de-construcción-de-poo)
+    - [**Encapsulamiento:**](#encapsulamiento)
+    - [**Relaciones entre Objetos:**](#relaciones-entre-objetos)
+      - [**Dendencia y Asociacion:**](#dendencia-y-asociacion)
+      - [**Relaciones entre clases:**](#relaciones-entre-clases)
+        - [**Herencia:**](#herencia)
+        - [**Clases Abstractas:**](#clases-abstractas)
+        - [**Metodo Abstracto:**](#metodo-abstracto)
+  - [Diseño por Contrato](#diseño-por-contrato)
+    - [Firmas de Metodos](#firmas-de-metodos)
+    - [Precondiciones](#precondiciones)
+      - [Excepciones](#excepciones)
+    - [Postcondiciones](#postcondiciones)
+    - [Invariantes](#invariantes)
+    - [El procedimiento del diseño por contrato](#el-procedimiento-del-diseño-por-contrato)
+  - [SOLID](#solid)
+  - [Implementaciones de POO](#implementaciones-de-poo)
+    - [Implementacion de Herencia:](#implementacion-de-herencia)
+    - [Implementacion de Metodos y Clases Abstractas](#implementacion-de-metodos-y-clases-abstractas)
+    - [Implementacion de Testing](#implementacion-de-testing)
+      - [SUnit](#sunit)
 
 La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de clases y objetos . Se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (generalmente llamadas clases), que se utilizan para crear instancias individuales de objetos.
 
@@ -9,7 +33,7 @@ La POO plantea los siguientes 3 pasos para resolver un problema:
 2. Determinar cómo deben interactuar los objetos.
 3. Implementar el comportamiento de los objetos.
 
-## Objetos
+## **Objetos**
 
 Una entidad que existe en tiempo de ejecución y que tiene comportamiento. Son capaces de recibir y mandar mensajes.
 
