@@ -4,6 +4,7 @@
   - [**Objetos**](#objetos)
   - [**Bloques de construcción de POO**](#bloques-de-construcción-de-poo)
     - [**Encapsulamiento:**](#encapsulamiento)
+      - [Tell, dont ask](#tell-dont-ask)
     - [**Relaciones entre Objetos:**](#relaciones-entre-objetos)
       - [**Dendencia y Asociacion:**](#dendencia-y-asociacion)
       - [**Relaciones entre clases:**](#relaciones-entre-clases)
@@ -52,12 +53,22 @@ Los objetos tienen:
 
 - **Delegacion:** Cuando un objeto, para responder un mensaje, envía mensajesa otros objetos, decimos que delega ese comportamiento en otros objetos.
 - **Mensaje:** cliente y receptor: Un mensaje es la interacción entre un objeto que pide un servicio y otro que lo brinda.
-  - El objeto que envía el mensaje se llama **objeto cliente** y quien recibe el mensaje se llama 
-  
+  - El objeto que envía el mensaje se llama **objeto cliente** y quien recibe el mensaje se llama
 - **Metodo:** Llamamos método a la implementación de la respuesta de un objeto a un mensaje.
 - **Atributo:** variable interna del objeto que sirve para almacenar parte del estado del mismo.
 
 ### **Encapsulamiento:**
+
+Cada objeto es responsable de responder a los mensajes que recibe, sin que quien le envía el mensaje tenga que saber cómo lo hace. Esto es lo que llamamos encapsulamiento.
+
+Las razones de ser del encapsulamiento son varias, entre ellas:
+
+- Puede haber implementaciones alternativas para una misma operación. 
+- En el futuro, podemos cambiar una implementación por otra, ambas correctas, sin afectar al cliente que utiliza el servicio.
+
+#### Tell, dont ask
+
+Un colorario del encapsulamiento que que implica que los objetos deben manejar su propio comportamiento, sin que nosotros manipulemos su estado desde afuera.
 
 ### **Relaciones entre Objetos:**
 
