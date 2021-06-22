@@ -1,8 +1,10 @@
 # **Programacion Orientada a Objetos**
 
 - [**Programacion Orientada a Objetos**](#programacion-orientada-a-objetos)
-  - [**Objetos**](#objetos)
   - [**Bloques de construcción de POO**](#bloques-de-construcción-de-poo)
+    - [Clases](#clases)
+    - [**Objetos**](#objetos)
+    - [Mensajes](#mensajes)
     - [**Encapsulamiento:**](#encapsulamiento)
       - [Tell, dont ask](#tell-dont-ask)
       - [Visibilidad](#visibilidad)
@@ -29,7 +31,7 @@
     - [Driagrama de Clase](#driagrama-de-clase)
     - [Diagrama de Secuencia](#diagrama-de-secuencia)
 
-La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de clases y objetos . Se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (generalmente llamadas clases), que se utilizan para crear instancias individuales de objetos.
+La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de clases y objetos . Se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (generalmente llamadas clases), que se utilizan para crear instancias individuales de objetos los cuales envian y reciven mensajes.
 
 La POO plantea los siguientes 3 pasos para resolver un problema:
 
@@ -38,7 +40,16 @@ La POO plantea los siguientes 3 pasos para resolver un problema:
 2. Determinar cómo deben interactuar los objetos.
 3. Implementar el comportamiento de los objetos.
 
-## **Objetos**
+## **Bloques de construcción de POO**
+
+### Clases
+
+Una clase es una especie de "plantilla" en la que se definen los atributos y métodos predeterminados de un tipo de objeto.
+
+- **Metodo:** Llamamos método a la implementación de la respuesta de un objeto a un mensaje.
+- **Atributo:** variable interna del objeto que sirve para almacenar parte del estado del mismo.
+
+### **Objetos**
 
 Una entidad que existe en tiempo de ejecución y que tiene comportamiento. Son capaces de recibir y mandar mensajes.
 
@@ -53,13 +64,12 @@ Los objetos tienen:
   - La devolución del estado de un objeto, en su totalidad o parcialmente.
   - El envío de un mensaje desde el objeto receptor a otro objeto (delegación).
 
-## **Bloques de construcción de POO**
+### Mensajes
 
+Un mensaje es la interacción entre un objeto que pide un servicio y otro que lo brinda.
+
+- El objeto que envía el mensaje se llama **objeto cliente** y quien recibe el mensaje se llama **objeto receptor**.
 - **Delegacion:** Cuando un objeto, para responder un mensaje, envía mensajesa otros objetos, decimos que delega ese comportamiento en otros objetos.
-- **Mensaje:** cliente y receptor: Un mensaje es la interacción entre un objeto que pide un servicio y otro que lo brinda.
-  - El objeto que envía el mensaje se llama **objeto cliente** y quien recibe el mensaje se llama
-- **Metodo:** Llamamos método a la implementación de la respuesta de un objeto a un mensaje.
-- **Atributo:** variable interna del objeto que sirve para almacenar parte del estado del mismo.
 
 ### **Encapsulamiento:**
 
@@ -249,6 +259,12 @@ Diagrama de como Funciona:
 ![Diagrama de Secuencia de ejecucion de Pruebas SUnit](./Images/SeqDiagramDeEjecucionDePruebasSUnit.png)
 
 ## UML
+
+Usos:
+
+- Discutir el diseño de un sistema
+- Documentar el diseño
+- Model Driven Development(No muy usado)
 
 ### Driagrama de Clase
 
