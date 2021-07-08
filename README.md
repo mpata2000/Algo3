@@ -23,6 +23,8 @@
     - [**El procedimiento del diseño por contrato**](#el-procedimiento-del-diseño-por-contrato)
   - [SOLID](#solid)
   - [**Implementaciones de POO**](#implementaciones-de-poo)
+    - [Implementacion de Metodo](#implementacion-de-metodo)
+    - [Instanciar una Clase](#instanciar-una-clase)
     - [Implementacion de Visibilidad](#implementacion-de-visibilidad)
     - [**Implementacion de Herencia:**](#implementacion-de-herencia)
     - [**Implementacion de Metodos y Clases Abstractas**](#implementacion-de-metodos-y-clases-abstractas)
@@ -36,6 +38,9 @@
       - [Interfaces UML](#interfaces-uml)
       - [Multiplicidad UML](#multiplicidad-uml)
     - [Diagrama de Secuencia](#diagrama-de-secuencia)
+      - [Actores y Participantes](#actores-y-participantes)
+      - [Activacion, creacion y destruccion](#activacion-creacion-y-destruccion)
+      - [Notas Diagramas de Secuencia](#notas-diagramas-de-secuencia)
 
 La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de clases y objetos . Se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (generalmente llamadas clases), que se utilizan para crear instancias individuales de objetos los cuales envian y reciven mensajes.
 
@@ -185,6 +190,38 @@ En general, suelen expresarse en forma de precondiciones o postcondiciones.
 
 ## **Implementaciones de POO**
 
+### Implementacion de Metodo
+
+En smalltalk:
+
+```smalltalk
+  estaLibre 
+    ^ ( contenido = 0 ) 
+
+```
+
+En Java:
+
+```java
+  public boolean estaLibre () { 
+    return contenido == 0; 
+  }
+```
+
+### Instanciar una Clase
+
+En smalltalk:
+
+```smalltalk
+  celda := Celda new.
+```
+
+En Java:
+
+```java
+  Celda celda = new Celda ( );
+```
+
 ### Implementacion de Visibilidad
 
 ### **Implementacion de Herencia:**
@@ -277,12 +314,14 @@ Usos:
 ### Driagrama de Clase
 
 ```uml
+@startuml
 Class Nombre{
-    -atributoDeIntancia:Tipo
-    -{static}atributoDeClase
-    +metodoDeInstancia(p1:Tipo,p2:Tipo):Retorno
-    +{static}metodoDeClase()
+  -atributoDeIntancia:Tipo
+  -{static}atributoDeClase
+  +metodoDeInstancia(p1:Tipo,p2:Tipo):Retorno
+  +{static}metodoDeClase()
 }
+@enduml
 ```
 
 ![](./Images/ClassDiagramClaseUML.png)
@@ -308,14 +347,16 @@ Class Nombre{
 |~| Visibilidad de Paquete |
 
 ```uml
-    Class Nombre{
-        -atributoPrivado
-        +atributoPublico
-        #atributoProtegido
-        -metodoPrivado()
-        +metodoPublico()
-        #metodoProtegido()
-    }
+  @startuml
+  Class Nombre{
+      -atributoPrivado
+      +atributoPublico
+      #atributoProtegido
+      -metodoPrivado()
+      +metodoPublico()
+      #metodoProtegido()
+  }
+  @enduml
 ```
 
 ![](./Images/ClassDiagramVisbilidadUML.png)
@@ -323,13 +364,15 @@ Class Nombre{
 #### Clases y Metodos Abtractos UML
 
 ```uml
-    Class ClaseConcreta{
-        + metodoConcreto()
-    }
+  @startuml
+  Class ClaseConcreta{
+      + metodoConcreto()
+  }
 
-    Abstract Class ClaseAbstracta{
-        + {Abstract}metodoAbstracto()
-    }
+  Abstract Class ClaseAbstracta{
+      + {Abstract}metodoAbstracto()
+  }
+  @enduml
 ```
 
 ![](./Images/ClassDiagramConcretavsAbstracta.png)
@@ -349,3 +392,58 @@ Class Nombre{
 |1..*|Uno o Varios|
 
 ### Diagrama de Secuencia
+
+```UML
+@startuml
+Alice -> Bob: mensaje
+Bob --> Alice: retorno
+
+Alice -> Bob: otro mensaje
+Alice <-- Bob: otro retorno
+@enduml
+```
+
+#### Actores y Participantes
+
+```UML
+@startuml
+Actor X as Jugador
+Participant Y as Alice
+Participant Z as Bob
+
+X -> Y: mensaje de actor
+
+Y -> Z: mensaje
+Z --> Y: retorno
+
+Y -> Z: otro mensaje
+Y <-- Z: otro retorno
+
+Y -> Y: mensaje a si mismo
+@enduml
+```
+
+#### Activacion, creacion y destruccion
+
+```UML
+@startuml
+Actor X as Jugador
+Participant Y as Alice
+Participant Z as Bob
+
+X -> Y: mensaje de actor
+activate Y
+Y -> Z: mensaje
+create z
+Z --> Y: retorno
+destroy Y
+Y -> Y: mensaje a si mismo
+activate Y
+Y -->: retorno a si mismo
+deactivate Y
+Y --> X
+deactivate Y
+@enduml
+```
+
+#### Notas Diagramas de Secuencia
