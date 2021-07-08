@@ -34,13 +34,14 @@
     - [Driagrama de Clase](#driagrama-de-clase)
       - [Flechas UML](#flechas-uml)
       - [Visibilidad UML](#visibilidad-uml)
-      - [Clases y Metodos Abtractos UML](#clases-y-metodos-abtractos-uml)
-      - [Interfaces UML](#interfaces-uml)
+      - [Interfaces, Clases y Metodos Abtractos UML](#interfaces-clases-y-metodos-abtractos-uml)
+      - [Notas y estereotipos](#notas-y-estereotipos)
       - [Multiplicidad UML](#multiplicidad-uml)
     - [Diagrama de Secuencia](#diagrama-de-secuencia)
       - [Actores y Participantes](#actores-y-participantes)
       - [Activacion, creacion y destruccion](#activacion-creacion-y-destruccion)
       - [Notas Diagramas de Secuencia](#notas-diagramas-de-secuencia)
+      - [Alts y Loops](#alts-y-loops)
 
 La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de clases y objetos . Se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (generalmente llamadas clases), que se utilizan para crear instancias individuales de objetos los cuales envian y reciven mensajes.
 
@@ -314,7 +315,7 @@ Usos:
 ### Driagrama de Clase
 
 ```uml
-@startuml
+@startuml ClassDiagramClaseUML
 Class Nombre{
   -atributoDeIntancia:Tipo
   -{static}atributoDeClase
@@ -324,7 +325,9 @@ Class Nombre{
 @enduml
 ```
 
-![](./Images/ClassDiagramClaseUML.png)
+- ClassDiagramClaseUML es el nombre que va a recibir el png creado
+
+![Diagrama de clase UML](./Images/ClassDiagramClaseUML.png)
 
 #### Flechas UML
 
@@ -347,38 +350,75 @@ Class Nombre{
 |~| Visibilidad de Paquete |
 
 ```uml
-  @startuml
-  Class Nombre{
-      -atributoPrivado
-      +atributoPublico
-      #atributoProtegido
-      -metodoPrivado()
-      +metodoPublico()
-      #metodoProtegido()
-  }
-  @enduml
+@startuml ClassDiagramVisibilidadUML
+Class Nombre{
+    -atributoPrivado
+    +atributoPublico
+    #atributoProtegido
+    -metodoPrivado()
+    +metodoPublico()
+    #metodoProtegido()
+}
+@enduml
 ```
 
-![](./Images/ClassDiagramVisbilidadUML.png)
+![Diagrama de clase Visibilidad](./Images/ClassDiagramVisbilidadUML.png)
 
-#### Clases y Metodos Abtractos UML
+#### Interfaces, Clases y Metodos Abtractos UML
 
 ```uml
-  @startuml
-  Class ClaseConcreta{
-      + metodoConcreto()
-  }
+@startuml
+Class ClaseConcreta{
+  + metodoConcreto()
+}
 
-  Abstract Class ClaseAbstracta{
-      + {Abstract}metodoAbstracto()
-  }
-  @enduml
+Abstract Class ClaseAbstracta{
+  + {Abstract}metodoAbstracto()
+}
+
+Interface Interface <<Interface>>{
+  +metodo()
+}
+
+Interface <|.. ClaseAbstracta
+ClaseAbstracta <|-- ClaseConcreta
+@enduml
 ```
 
-![](./Images/ClassDiagramConcretavsAbstracta.png)
+![Diagrama de Clase, Interfaces y Clases Abstractas](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLW2HgSxvUSb5gIM9rLmA2jeAkQab-IdvKB5y3KskMYuknwJYagB4v18595rGCPYsQXY_5c80b0ipmJEl9BKeBJ4vLG71ih61i-timAQ0jMBeiAdHqqEpamkL2rIYgulg6Iw7rBmKe4S1)
 
-#### Interfaces UML
+#### Notas y estereotipos
 
+```UML
+@startuml
+class Object << general >>
+Object <|--- ArrayList
+
+note top of Object : In java, every class\nextends this one.
+
+note "This is a floating note" as N1
+note "This note is connected\nto several objects." as N2
+Object .. N2
+N2 .. ArrayList
+
+class Foo
+note left: Nota a la ultima clase
+
+class A {
+{static} int contador
++void {abstract} inicio()
+}
+
+note right of A::contador
+  Nota a Atributo
+end note
+note right of A::inicio
+  Nota a un metodo
+end note
+@enduml
+```
+
+![Diagrma de Clases Notas](http://www.plantuml.com/plantuml/png/PP11Q_f04CNl-oaUdlv_MWFr64GCBOL2IIyzUXatOrpPx9JTYLIitxskCQrGo64oytxptkmoAKNjEuz7JoazEMeZTRKe9sDp1s_h7Ll5V8wM0qVoM2pCsFoQJgUeOgJ3gqjgJ11bg7n0DYDOuYLWHtkw1-yv7d1PkmhygHoQ1Dsw10bSNEd9UswSFyB62waBBV9W0age7sv5kSnAAo6mLMvMGGKfsv27NFnJCO2pCNDHv9zwbekRvCEnpoA3WUUDbgX52GHFwBswZf1LF8eh7CqnAQcp9xYWEOTI8z7SxSKrED8wQIIhUUgiat__pUbwPNJjLlChLMNvWs4qh3IwTQzYE3J8-h_GiF4NwGCwLcbkcEMvwZl_3G00)
 
 #### Multiplicidad UML
 
@@ -395,21 +435,28 @@ Class Nombre{
 
 ```UML
 @startuml
-Alice -> Bob: mensaje
-Bob --> Alice: retorno
+header Encabezado
+footer Page %page% of %lastpage%
+
+title Titulo
+
+Alice -> Bob: mensaje(parametro: tipo)
+Bob --> Alice: retorno: tipo
 
 Alice -> Bob: otro mensaje
 Alice <-- Bob: otro retorno
 @enduml
 ```
 
+![Diagrama de Secuencia Ejemplo](http://www.plantuml.com/plantuml/png/NOz12i9034NtEKKs1LtC1Of85Toxy09fc-h8T39aqesdDvGMmKqWUVy_I5UDr9OvmOjfPCLR7gZd3uq2auZvvKvFngRuR50cR19LMpS0YvOO7z6M902N50V6SCQhz2tEd2kz-L18QMPJQT5YaICunU2fDTwYiedcZVvBn7kxQKEd47viRqF7UVGllW00)
+
 #### Actores y Participantes
 
 ```UML
 @startuml
-Actor X as Jugador
-Participant Y as Alice
-Participant Z as Bob
+Actor X as "Jugador"
+Participant Y as "Alice"
+Participant Z as "Bob"
 
 X -> Y: mensaje de actor
 
@@ -423,27 +470,80 @@ Y -> Y: mensaje a si mismo
 @enduml
 ```
 
+![](http://www.plantuml.com/plantuml/png/LSyn3i8m38NXtQTuwfuB88HQHYR6ffjfB1JKn2X9xqzQf41NVxzikS-5Krd3GiDSD644PtItzSbEKqVtYdxsRuu5TgTXyRCSOThXge-EQ8Ivm9uG96P-2Po0jyL4TfEf2KqmtpH9zQY_GalIbbcSZMdJO_jtXv4zWiz1gPVewaCV)
+
 #### Activacion, creacion y destruccion
 
 ```UML
 @startuml
-Actor X as Jugador
-Participant Y as Alice
-Participant Z as Bob
+Actor X as "Jugador"
+Participant Y as "Alice"
+Participant Z as "Bob"
 
 X -> Y: mensaje de actor
 activate Y
+create Z
 Y -> Z: mensaje
-create z
+activate Z
 Z --> Y: retorno
-destroy Y
+destroy Z
 Y -> Y: mensaje a si mismo
 activate Y
-Y -->: retorno a si mismo
+Y --> Y: retorno a si mismo
 deactivate Y
 Y --> X
 deactivate Y
 @enduml
 ```
 
+![Diagrama de Secuencia Creacion,Activacion y Destruccion](http://www.plantuml.com/plantuml/png/PP2n3i8W54NtznKttVi33gPrT78iR4zuCPW21gY9Vo-jiMbr8OHpxhq9NIwSokH7was92GCuepbFDxOnDNIfq1dtu52W5jIFpiWUw0MSuhKX6j0UeGxm4ZBV1LR0Sp7Lqpsv21IP9FD5avfblSghKv56-obAKjCXafLSKdnzKvi9HdRmBlku7L4_1LlDofyux1yx2RP-oXi0)
+
 #### Notas Diagramas de Secuencia
+
+```uml
+@startuml
+participant Alice
+participant Bob
+
+Alice->Bob
+note left: Nota a la izquierda del ultimo mensaje
+note right: Nota a la derecha del ultimo mensaje
+
+note left of Alice 
+  Nota larga
+  a la izquierda de Alice
+end note
+
+note right of Alice: Nota a la derecha de Alice
+
+note over Alice: Nota sobre Alice.
+
+
+note over Bob, Alice
+  Nota sobre ambos
+  Larga
+end note
+@enduml
+```
+
+![Diagrama de Secuencia Notas](http://www.plantuml.com/plantuml/png/RP11Ke0m34NtESK_W7e05mwwThn3e07gj0ssnOMdjz0EmiYgcVI__3-_IvbZNhsZfRnsi0k7Z5Td1xbithGdsjUFBziSD0kSZFaP7veP3CUmFr-hbMWOHXnMbwrNU0c9FwKIqKxp1J4IPPXlWJyFw5WZWL1Pnt5Ymd_R5bs2mORJoVQuSkzV_ngWtn8lugHzR98dEejA6GyDnLdAljT4mFkUzCZJbQcq_Gi0)
+
+#### Alts y Loops
+
+```uml
+@startuml
+Alice -> Bob: mensaje
+
+alt un caso
+    Bob --> Alice: retornoCaso1
+else otro caso
+    Bob --> Alice: retornoCaso2
+end
+
+loop por x veces
+    Alice->Bob: mensajeEnLoop
+end
+@enduml
+```
+
+![Diagrama de Secuencia Alts y Loops](http://www.plantuml.com/plantuml/png/ZSunhi9030JGtgUO2spnVvaY2Y0wBh4iBa0REx8TnF4nMr7IJ3Dlf5aygiM-TZhqUsEK6KUzJbXPl3wOgFR0BcZLbG1yMfHKWqym3ZNHKzP_nDqP6gQ_y7zYkH5rrGsR6bvuScCVgw7B_FtaB9UKOxDavECt)
