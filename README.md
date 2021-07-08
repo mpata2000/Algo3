@@ -23,25 +23,25 @@
     - [**El procedimiento del diseño por contrato**](#el-procedimiento-del-diseño-por-contrato)
   - [SOLID](#solid)
   - [**Implementaciones de POO**](#implementaciones-de-poo)
-    - [Implementacion de Metodo](#implementacion-de-metodo)
-    - [Instanciar una Clase](#instanciar-una-clase)
-    - [Implementacion de Visibilidad](#implementacion-de-visibilidad)
+    - [**Implementacion de Metodo**](#implementacion-de-metodo)
+    - [**Instanciar una Clase**](#instanciar-una-clase)
+    - [**Implementacion de Visibilidad**](#implementacion-de-visibilidad)
     - [**Implementacion de Herencia:**](#implementacion-de-herencia)
     - [**Implementacion de Metodos y Clases Abstractas**](#implementacion-de-metodos-y-clases-abstractas)
-    - [Implementacion de Testing](#implementacion-de-testing)
-      - [SUnit](#sunit)
-  - [UML](#uml)
-    - [Driagrama de Clase](#driagrama-de-clase)
-      - [Flechas UML](#flechas-uml)
-      - [Visibilidad UML](#visibilidad-uml)
-      - [Interfaces, Clases y Metodos Abtractos UML](#interfaces-clases-y-metodos-abtractos-uml)
-      - [Notas y estereotipos](#notas-y-estereotipos)
-      - [Multiplicidad UML](#multiplicidad-uml)
-    - [Diagrama de Secuencia](#diagrama-de-secuencia)
-      - [Actores y Participantes](#actores-y-participantes)
-      - [Activacion, creacion y destruccion](#activacion-creacion-y-destruccion)
-      - [Notas Diagramas de Secuencia](#notas-diagramas-de-secuencia)
-      - [Alts y Loops](#alts-y-loops)
+    - [**Implementacion de Testing**](#implementacion-de-testing)
+      - [**SUnit**](#sunit)
+  - [**UML**](#uml)
+    - [**Driagrama de Clase**](#driagrama-de-clase)
+      - [**Flechas UML**](#flechas-uml)
+      - [**Visibilidad UML**](#visibilidad-uml)
+      - [**Interfaces, Clases y Metodos Abtractos UML**](#interfaces-clases-y-metodos-abtractos-uml)
+      - [**Notas y estereotipos**](#notas-y-estereotipos)
+      - [**Multiplicidad UML**](#multiplicidad-uml)
+    - [**Diagrama de Secuencia**](#diagrama-de-secuencia)
+      - [**Actores y Participantes**](#actores-y-participantes)
+      - [**Activacion, creacion y destruccion**](#activacion-creacion-y-destruccion)
+      - [**Notas Diagramas de Secuencia**](#notas-diagramas-de-secuencia)
+      - [**Alts y Loops**](#alts-y-loops)
 
 La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de clases y objetos . Se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (generalmente llamadas clases), que se utilizan para crear instancias individuales de objetos los cuales envian y reciven mensajes.
 
@@ -191,7 +191,11 @@ En general, suelen expresarse en forma de precondiciones o postcondiciones.
 
 ## **Implementaciones de POO**
 
-### Implementacion de Metodo
+---
+
+### **Implementacion de Metodo**
+
+---
 
 En smalltalk:
 
@@ -209,7 +213,9 @@ En Java:
   }
 ```
 
-### Instanciar una Clase
+### **Instanciar una Clase**
+
+---
 
 En smalltalk:
 
@@ -223,9 +229,13 @@ En Java:
   Celda celda = new Celda ( );
 ```
 
-### Implementacion de Visibilidad
+### **Implementacion de Visibilidad**
+
+---
 
 ### **Implementacion de Herencia:**
+
+---
 
 En smalltalk:
 
@@ -240,6 +250,8 @@ En Java:
 ```
 
 ### **Implementacion de Metodos y Clases Abstractas**
+
+---
 
 En Java, la declaración de un método como abstracto que hace añadiendo la palabra abstract en su firma, y cerrando con un punto y coma en vez de un bloque de código. He aquí un ejemplo:
 
@@ -262,9 +274,11 @@ En Smalltalk, un método abstracto se implementa enviando un mensaje que implica
     self subclassResponsibility. 
 ```
 
-### Implementacion de Testing
+### **Implementacion de Testing**
 
-#### SUnit
+---
+
+#### **SUnit**
 
 La idea de SUnit es simple, y se basa en las siguientes premisas:
 
@@ -304,7 +318,7 @@ Diagrama de como Funciona:
 
 ![Diagrama de Secuencia de ejecucion de Pruebas SUnit](./Images/SeqDiagramDeEjecucionDePruebasSUnit.png)
 
-## UML
+## **UML**
 
 Usos:
 
@@ -312,7 +326,9 @@ Usos:
 - Documentar el diseño
 - Model Driven Development(No muy usado)
 
-### Driagrama de Clase
+### **Driagrama de Clase**
+
+---
 
 ```uml
 @startuml ClassDiagramClaseUML
@@ -329,7 +345,7 @@ Class Nombre{
 
 ![Diagrama de clase UML](./Images/ClassDiagramClaseUML.png)
 
-#### Flechas UML
+#### **Flechas UML**
 
 |Relacion|UML|Situacion|
 |--------|---|------------------|
@@ -340,7 +356,7 @@ Class Nombre{
 |Herencia| <\|-- | Cumple "es un" |
 |Impl. de Interfaz| ..\|>  | |
 
-#### Visibilidad UML
+#### **Visibilidad UML**
 
 | Signo | Significado |
 |-------|-------------|
@@ -364,7 +380,7 @@ Class Nombre{
 
 ![Diagrama de clase Visibilidad](./Images/ClassDiagramVisbilidadUML.png)
 
-#### Interfaces, Clases y Metodos Abtractos UML
+#### **Interfaces, Clases y Metodos Abtractos UML**
 
 ```uml
 @startuml
@@ -387,7 +403,7 @@ ClaseAbstracta <|-- ClaseConcreta
 
 ![Diagrama de Clase, Interfaces y Clases Abstractas](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLW2HgSxvUSb5gIM9rLmA2jeAkQab-IdvKB5y3KskMYuknwJYagB4v18595rGCPYsQXY_5c80b0ipmJEl9BKeBJ4vLG71ih61i-timAQ0jMBeiAdHqqEpamkL2rIYgulg6Iw7rBmKe4S1)
 
-#### Notas y estereotipos
+#### **Notas y estereotipos**
 
 ```UML
 @startuml
@@ -420,7 +436,7 @@ end note
 
 ![Diagrma de Clases Notas](http://www.plantuml.com/plantuml/png/PP11Q_f04CNl-oaUdlv_MWFr64GCBOL2IIyzUXatOrpPx9JTYLIitxskCQrGo64oytxptkmoAKNjEuz7JoazEMeZTRKe9sDp1s_h7Ll5V8wM0qVoM2pCsFoQJgUeOgJ3gqjgJ11bg7n0DYDOuYLWHtkw1-yv7d1PkmhygHoQ1Dsw10bSNEd9UswSFyB62waBBV9W0age7sv5kSnAAo6mLMvMGGKfsv27NFnJCO2pCNDHv9zwbekRvCEnpoA3WUUDbgX52GHFwBswZf1LF8eh7CqnAQcp9xYWEOTI8z7SxSKrED8wQIIhUUgiat__pUbwPNJjLlChLMNvWs4qh3IwTQzYE3J8-h_GiF4NwGCwLcbkcEMvwZl_3G00)
 
-#### Multiplicidad UML
+#### **Multiplicidad UML**
 
 |Multiplicidad|Significado|
 |-|-|
@@ -431,7 +447,9 @@ end note
 |0..*|Cero o Varios|
 |1..*|Uno o Varios|
 
-### Diagrama de Secuencia
+### **Diagrama de Secuencia**
+
+---
 
 ```UML
 @startuml
@@ -450,7 +468,7 @@ Alice <-- Bob: otro retorno
 
 ![Diagrama de Secuencia Ejemplo](http://www.plantuml.com/plantuml/png/NOz12i9034NtEKKs1LtC1Of85Toxy09fc-h8T39aqesdDvGMmKqWUVy_I5UDr9OvmOjfPCLR7gZd3uq2auZvvKvFngRuR50cR19LMpS0YvOO7z6M902N50V6SCQhz2tEd2kz-L18QMPJQT5YaICunU2fDTwYiedcZVvBn7kxQKEd47viRqF7UVGllW00)
 
-#### Actores y Participantes
+#### **Actores y Participantes**
 
 ```UML
 @startuml
@@ -472,7 +490,7 @@ Y -> Y: mensaje a si mismo
 
 ![](http://www.plantuml.com/plantuml/png/LSyn3i8m38NXtQTuwfuB88HQHYR6ffjfB1JKn2X9xqzQf41NVxzikS-5Krd3GiDSD644PtItzSbEKqVtYdxsRuu5TgTXyRCSOThXge-EQ8Ivm9uG96P-2Po0jyL4TfEf2KqmtpH9zQY_GalIbbcSZMdJO_jtXv4zWiz1gPVewaCV)
 
-#### Activacion, creacion y destruccion
+#### **Activacion, creacion y destruccion**
 
 ```UML
 @startuml
@@ -498,7 +516,7 @@ deactivate Y
 
 ![Diagrama de Secuencia Creacion,Activacion y Destruccion](http://www.plantuml.com/plantuml/png/PP2n3i8W54NtznKttVi33gPrT78iR4zuCPW21gY9Vo-jiMbr8OHpxhq9NIwSokH7was92GCuepbFDxOnDNIfq1dtu52W5jIFpiWUw0MSuhKX6j0UeGxm4ZBV1LR0Sp7Lqpsv21IP9FD5avfblSghKv56-obAKjCXafLSKdnzKvi9HdRmBlku7L4_1LlDofyux1yx2RP-oXi0)
 
-#### Notas Diagramas de Secuencia
+#### **Notas Diagramas de Secuencia**
 
 ```uml
 @startuml
@@ -528,7 +546,7 @@ end note
 
 ![Diagrama de Secuencia Notas](http://www.plantuml.com/plantuml/png/RP11Ke0m34NtESK_W7e05mwwThn3e07gj0ssnOMdjz0EmiYgcVI__3-_IvbZNhsZfRnsi0k7Z5Td1xbithGdsjUFBziSD0kSZFaP7veP3CUmFr-hbMWOHXnMbwrNU0c9FwKIqKxp1J4IPPXlWJyFw5WZWL1Pnt5Ymd_R5bs2mORJoVQuSkzV_ngWtn8lugHzR98dEejA6GyDnLdAljT4mFkUzCZJbQcq_Gi0)
 
-#### Alts y Loops
+#### **Alts y Loops**
 
 ```uml
 @startuml
