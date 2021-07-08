@@ -22,11 +22,14 @@
     - [**Invariantes**](#invariantes)
     - [**El procedimiento del diseño por contrato**](#el-procedimiento-del-diseño-por-contrato)
   - [TDD](#tdd)
-  - [SOLID](#solid)
-  - [**Implementaciones de POO**](#implementaciones-de-poo)
-    - [**Implementacion de Metodo**](#implementacion-de-metodo)
-    - [**Instanciar una Clase**](#instanciar-una-clase)
-    - [**Implementacion de Herencia:**](#implementacion-de-herencia)
+  - [Diseño orientado a objetos](#diseño-orientado-a-objetos)
+    - [SOLID](#solid)
+      - [SRP – Single Responsibility Principle](#srp--single-responsibility-principle)
+      - [OCP – Open/Closed Principle](#ocp--openclosed-principle)
+      - [LSP – Liskov Substitution Principle](#lsp--liskov-substitution-principle)
+      - [ISP – Interface Segregation Principle](#isp--interface-segregation-principle)
+      - [DIP – Dependency Inversion Principle](#dip--dependency-inversion-principle)
+  - [**Implementacion de POO en Java y Smalltalk**](#implementacion-de-poo-en-java-y-smalltalk)
     - [**Implementacion de Metodos y Clases Abstractas**](#implementacion-de-metodos-y-clases-abstractas)
     - [**Implementacion de Testing**](#implementacion-de-testing)
       - [**SUnit**](#sunit)
@@ -189,13 +192,41 @@ En general, suelen expresarse en forma de precondiciones o postcondiciones.
 
 ## TDD
 
-## SOLID
 
-## **Implementaciones de POO**
+## Diseño orientado a objetos
 
-### **Implementacion de Metodo**
+### SOLID
 
----
+#### SRP – Single Responsibility Principle
+
+#### OCP – Open/Closed Principle
+
+#### LSP – Liskov Substitution Principle
+
+#### ISP – Interface Segregation Principle
+
+#### DIP – Dependency Inversion Principle
+
+
+## **Implementacion de POO en Java y Smalltalk**
+
+<details><summary><b>Instanciar una Clase:</b></summary>
+
+En smalltalk:
+
+```smalltalk
+  celda := Celda new.
+```
+
+En Java:
+
+```java
+  Celda celda = new Celda ( );
+```
+
+</details></br>
+
+<details><summary><b>Implementacion de Metodos:</b></summary>
 
 En smalltalk:
 
@@ -213,25 +244,9 @@ En Java:
   }
 ```
 
-### **Instanciar una Clase**
+</details></br>
 
----
-
-En smalltalk:
-
-```smalltalk
-  celda := Celda new.
-```
-
-En Java:
-
-```java
-  Celda celda = new Celda ( );
-```
-
-### **Implementacion de Herencia:**
-
----
+<details><summary><b>Implementacion de Herencia:</b></summary>
 
 En smalltalk:
 
@@ -245,14 +260,14 @@ En Java:
     class ValorInvalido extends RuntimeException { } 
 ```
 
-### **Implementacion de Metodos y Clases Abstractas**
+</details></br>
 
----
+### **Implementacion de Metodos y Clases Abstractas**
 
 En Java, la declaración de un método como abstracto que hace añadiendo la palabra abstract en su firma, y cerrando con un punto y coma en vez de un bloque de código. He aquí un ejemplo:
 
 ```java
-    public abstract void extraer (int monto); 
+public abstract void extraer (int monto); 
 ```
 
 Una clase que tiene algún método abstracto debe ser abstracta, por lo que hay que agregar la palabra abstract en su encabezado, como en el ejemplo:
@@ -266,13 +281,11 @@ public abstract class Cuenta {
 En Smalltalk, un método abstracto se implementa enviando un mensaje que implica que las subclases deben implementarlo, como en el ejemplo:
 
 ```smalltalk
-  extraer: monto 
-    self subclassResponsibility. 
+extraer: monto 
+  self subclassResponsibility. 
 ```
 
 ### **Implementacion de Testing**
-
----
 
 #### **SUnit**
 
@@ -344,6 +357,8 @@ Class Nombre{
 ```
 
 ![Diagrama de clase UML](./Images/ClassDiagramClaseUML.png)
+
+- En PlantUML usar `skinparam classAttributeIconSize 0` para que use letras en vez de simbolos
 
 #### **Flechas UML**
 
