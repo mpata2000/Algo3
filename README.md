@@ -30,7 +30,6 @@
       - [ISP – Interface Segregation Principle](#isp--interface-segregation-principle)
       - [DIP – Dependency Inversion Principle](#dip--dependency-inversion-principle)
   - [**Implementacion de POO en Java y Smalltalk**](#implementacion-de-poo-en-java-y-smalltalk)
-    - [**Implementacion de Metodos y Clases Abstractas**](#implementacion-de-metodos-y-clases-abstractas)
     - [**Implementacion de Testing**](#implementacion-de-testing)
       - [**SUnit**](#sunit)
   - [**UML**](#uml)
@@ -199,26 +198,50 @@ En general, suelen expresarse en forma de precondiciones o postcondiciones.
 
 #### SRP – Single Responsibility Principle
 
+Toda clase debe tener una unica responsibilidad
+
 #### OCP – Open/Closed Principle
+
+Las Clases deben estar abiertas para las extensiones pero cerradas para su modificacion
+
+El principio abierto-cerrado enunciado por Bertrand Meyer [Meyer 1988], expresa que las clases tienen que estar cerradas para modificación, pero abiertas para reutilización.
+
+Esto es, habría que tratar de no modificar clases existentes, ya probadas, estables y en producción. Pero esto no impide que dichas clases puedan reutilizarse desde otras.
 
 #### LSP – Liskov Substitution Principle
 
+El principio de Sutitucion de Liskov enunciado por Barbara Liskov [Liskov 1988], plantea que los subtipos deben ser sustituibles en todas partes por sus tipos base.
+
+- Las subclases deben poder ser utilizadas a travez de la clase madre sin ningun problema
+
+Los corolarios del principio de sustitución son:
+
+- Las precondiciones de un método no pueden ser más estrictas en una subclase de lo que son en su ancestro.
+- Las postcondiciones de un método no pueden ser más laxas en una subclase de lo que son en su ancestro.
+- Los invariantes de una clase deben ser al menos los mismos de la clase ancestro.
+- Un método debe lanzar los mismos tipos de excepciones que en la clase ancestro, o a lo sumo excepciones derivadas de aquéllas.
+
 #### ISP – Interface Segregation Principle
+
+Los clientes no deben ser forzados a depender de metodos que no utilizan
+
+- muchas intefaces especificas
 
 #### DIP – Dependency Inversion Principle
 
+Se debe depender de las abtracciones y no de las implementaciones
 
 ## **Implementacion de POO en Java y Smalltalk**
 
 <details><summary><b>Instanciar una Clase:</b></summary>
 
-En smalltalk:
+**En smalltalk:**
 
 ```smalltalk
   celda := Celda new.
 ```
 
-En Java:
+**En Java:**
 
 ```java
   Celda celda = new Celda ( );
@@ -228,7 +251,7 @@ En Java:
 
 <details><summary><b>Implementacion de Metodos:</b></summary>
 
-En smalltalk:
+**En smalltalk:**
 
 ```smalltalk
   estaLibre 
@@ -236,7 +259,7 @@ En smalltalk:
 
 ```
 
-En Java:
+**En Java:**
 
 ```java
   public boolean estaLibre () { 
@@ -248,13 +271,13 @@ En Java:
 
 <details><summary><b>Implementacion de Herencia:</b></summary>
 
-En smalltalk:
+**En smalltalk:**
 
 ```smalltalk
     Error subclass: #ValorInvalido
 ```
 
-En Java:
+**En Java:**
 
 ```java
     class ValorInvalido extends RuntimeException { } 
@@ -262,9 +285,9 @@ En Java:
 
 </details></br>
 
-### **Implementacion de Metodos y Clases Abstractas**
+<details><summary><b>Implementacion de Metodos y Clases Abstractas:</b></summary>
 
-En Java, la declaración de un método como abstracto que hace añadiendo la palabra abstract en su firma, y cerrando con un punto y coma en vez de un bloque de código. He aquí un ejemplo:
+**En Java,** la declaración de un método como abstracto que hace añadiendo la palabra abstract en su firma, y cerrando con un punto y coma en vez de un bloque de código. He aquí un ejemplo:
 
 ```java
 public abstract void extraer (int monto); 
@@ -278,12 +301,14 @@ public abstract class Cuenta {
 }
 ```
 
-En Smalltalk, un método abstracto se implementa enviando un mensaje que implica que las subclases deben implementarlo, como en el ejemplo:
+**En Smalltalk,** un método abstracto se implementa enviando un mensaje que implica que las subclases deben implementarlo, como en el ejemplo:
 
 ```smalltalk
 extraer: monto 
   self subclassResponsibility. 
 ```
+
+</details></br>
 
 ### **Implementacion de Testing**
 
