@@ -21,11 +21,11 @@
     - [**Postcondiciones**](#postcondiciones)
     - [**Invariantes**](#invariantes)
     - [**El procedimiento del diseño por contrato**](#el-procedimiento-del-diseño-por-contrato)
+  - [TDD](#tdd)
   - [SOLID](#solid)
   - [**Implementaciones de POO**](#implementaciones-de-poo)
     - [**Implementacion de Metodo**](#implementacion-de-metodo)
     - [**Instanciar una Clase**](#instanciar-una-clase)
-    - [**Implementacion de Visibilidad**](#implementacion-de-visibilidad)
     - [**Implementacion de Herencia:**](#implementacion-de-herencia)
     - [**Implementacion de Metodos y Clases Abstractas**](#implementacion-de-metodos-y-clases-abstractas)
     - [**Implementacion de Testing**](#implementacion-de-testing)
@@ -94,7 +94,7 @@ Los objetos tienen:
   - Los cambios de estado suelen ser por un mensaje recibido por el objeto
   - Generalmente privado, o salvo que se necesite que se pueda mediante un mensaje
 - **Comportamiento:** El comportamiento de un objeto está compuesto por las respuestas a los mensajes que recibe un objeto, que a su vez pueden provocar:
-  - Un cambio de estado en el objeto receptor del mensaje. 
+  - Un cambio de estado en el objeto receptor del mensaje.
   - La devolución del estado de un objeto, en su totalidad o parcialmente.
   - El envío de un mensaje desde el objeto receptor a otro objeto (delegación).
 
@@ -123,7 +123,7 @@ Cada objeto es responsable de responder a los mensajes que recibe, sin que quien
 
 Las razones de ser del encapsulamiento son varias, entre ellas:
 
-- Puede haber implementaciones alternativas para una misma operación. 
+- Puede haber implementaciones alternativas para una misma operación.
 - En el futuro, podemos cambiar una implementación por otra, ambas correctas, sin afectar al cliente que utiliza el servicio.
 
 #### **Tell, dont ask**
@@ -136,7 +136,7 @@ Los lenguajes de programación orientados a objetos prevén distintos tipos de v
 
 - **Pública:** el método, atributo o clase en cuestión se puede utilizar en cualquier parte del programa.
 - **Privada:** el método, atributo o clase en cuestión se puede utilizar solamente dentro de su clase.
-- **Protegida:** el método, atributo o clase en cuestión se puede utilizar solamente dentro desu clase o una clase descendiente de ella. 
+- **Protegida:** el método, atributo o clase en cuestión se puede utilizar solamente dentro desu clase o una clase descendiente de ella.
 
 Un buen manejo de la visibilidad permite que el programador haga una buena administración del encapsulamiento, dando visibilidad solamente a aquellos elementos que necesitan ser usados desde afuera.
 
@@ -187,11 +187,11 @@ En general, suelen expresarse en forma de precondiciones o postcondiciones.
 
 ![Pasos deDiseño por Contrato](./Images/DisenioPorContratoDiagrama.png)
 
+## TDD
+
 ## SOLID
 
 ## **Implementaciones de POO**
-
----
 
 ### **Implementacion de Metodo**
 
@@ -229,10 +229,6 @@ En Java:
   Celda celda = new Celda ( );
 ```
 
-### **Implementacion de Visibilidad**
-
----
-
 ### **Implementacion de Herencia:**
 
 ---
@@ -267,7 +263,7 @@ public abstract class Cuenta {
 }
 ```
 
-En Smalltalk, un método abstracto se implementa enviando un mensaje que implica que las subclases deben implementarlo, como en el ejemplo: 
+En Smalltalk, un método abstracto se implementa enviando un mensaje que implica que las subclases deben implementarlo, como en el ejemplo:
 
 ```smalltalk
   extraer: monto 
@@ -295,7 +291,7 @@ Al trabajar con SUnit, lo que debemos hacer es escribir una clase de pruebas, qu
     TestCase subclass: #PruebasX
 ```
 
-Con todo esto definimos los métodos de la clase PruebasX:
+**Con todo esto definimos los métodos de la clase PruebasX:**
 
 ```smalltalk
     test01SumarUnoMasUnoDaDos
@@ -312,11 +308,13 @@ Con todo esto definimos los métodos de la clase PruebasX:
         self should: [1/0] raise: ZeroDivide
 ```
 
-Diagrama de como Funciona:
+<details><summary><b>Diagrama de como Funciona:</b></summary>
 
 ![Diagrama de Clase de SUnit](./Images/ClassDiagramPruebasSUnit.png)
 
 ![Diagrama de Secuencia de ejecucion de Pruebas SUnit](./Images/SeqDiagramDeEjecucionDePruebasSUnit.png)
+
+</details>
 
 ## **UML**
 
@@ -330,6 +328,10 @@ Usos:
 
 ---
 
+Los métodos y los atributos de las instancias de cada clase. En estos casos, cada clase se representa como un rectángulo de 3 compartimientos. El primero es para el nombre de la clase, el segundo es para los atributos y el tercero para los métodos.
+
+- ClassDiagramClaseUML es el nombre que va a recibir el png creado, se pone al lado de `@startuml`
+
 ```uml
 @startuml ClassDiagramClaseUML
 Class Nombre{
@@ -340,8 +342,6 @@ Class Nombre{
 }
 @enduml
 ```
-
-- ClassDiagramClaseUML es el nombre que va a recibir el png creado
 
 ![Diagrama de clase UML](./Images/ClassDiagramClaseUML.png)
 
@@ -361,7 +361,7 @@ Class Nombre{
 | Signo | Significado |
 |-------|-------------|
 |+| Visibilidad Publica |
-|-| Visbilidad Privada |
+|-| Visibilidad Privada |
 |#| Visibilidad Protegida |
 |~| Visibilidad de Paquete |
 
@@ -381,6 +381,8 @@ Class Nombre{
 ![Diagrama de clase Visibilidad](./Images/ClassDiagramVisbilidadUML.png)
 
 #### **Interfaces, Clases y Metodos Abtractos UML**
+
+Las clases y métodos abstractos se escriben en cursiva. Hay personas que en vez de escribir las clases abstractas en cursiva.
 
 ```uml
 @startuml
@@ -488,7 +490,7 @@ Y -> Y: mensaje a si mismo
 @enduml
 ```
 
-![](http://www.plantuml.com/plantuml/png/LSyn3i8m38NXtQTuwfuB88HQHYR6ffjfB1JKn2X9xqzQf41NVxzikS-5Krd3GiDSD644PtItzSbEKqVtYdxsRuu5TgTXyRCSOThXge-EQ8Ivm9uG96P-2Po0jyL4TfEf2KqmtpH9zQY_GalIbbcSZMdJO_jtXv4zWiz1gPVewaCV)
+![Diagrama de Secuencia Actores y Participantes](http://www.plantuml.com/plantuml/png/LSyn3i8m38NXtQTuwfuB88HQHYR6ffjfB1JKn2X9xqzQf41NVxzikS-5Krd3GiDSD644PtItzSbEKqVtYdxsRuu5TgTXyRCSOThXge-EQ8Ivm9uG96P-2Po0jyL4TfEf2KqmtpH9zQY_GalIbbcSZMdJO_jtXv4zWiz1gPVewaCV)
 
 #### **Activacion, creacion y destruccion**
 
