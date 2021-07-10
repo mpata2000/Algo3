@@ -3,13 +3,11 @@
 - [**Programacion Orientada a Objetos**](#programacion-orientada-a-objetos)
   - [**Bloques de construcción de POO**](#bloques-de-construcción-de-poo)
     - [**Clases**](#clases)
-      - [**Relaciones entre clases:**](#relaciones-entre-clases)
-        - [**Herencia:**](#herencia)
-        - [**Clases Abstractas:**](#clases-abstractas)
-        - [**Metodo Abstracto:**](#metodo-abstracto)
+      - [**Herencia:**](#herencia)
+      - [**Clases Abstractas:**](#clases-abstractas)
+      - [**Metodo Abstracto:**](#metodo-abstracto)
     - [**Objetos**](#objetos)
-      - [**Relaciones entre Objetos:**](#relaciones-entre-objetos)
-        - [**Dendencia y Asociacion:**](#dendencia-y-asociacion)
+      - [**Dendencia y Asociacion:**](#dendencia-y-asociacion)
     - [**Mensajes**](#mensajes)
     - [**Encapsulamiento:**](#encapsulamiento)
       - [**Tell, dont ask**](#tell-dont-ask)
@@ -67,9 +65,7 @@ Una clase es una especie de "plantilla" en la que se definen los atributos y mé
 - **Metodo:** Llamamos método a la implementación de la respuesta de un objeto a un mensaje.
 - **Atributo:** variable interna del objeto que sirve para almacenar parte del estado del mismo.
 
-#### **Relaciones entre clases:**
-
-##### **Herencia:**
+#### **Herencia:**
 
 La herencia es una relación entre clases, por la cual se define que una clase puede ser un caso particular de otra. A la clase más general la llamamos madre y a la más patricular hija. Cuando hay herencia, todas las instancias de la clase hija son también instancias de la clase madre.
 
@@ -77,13 +73,13 @@ La herencia es una relación entre clases, por la cual se define que una clase p
 - **Redefinicion:** Los lenguajes de programación que tienen clases y herencia, permiten volver a definir métodos que ya estuvieran definidos en la clase base en sus clases derivadas
   - La redefinición existe para definir un mismo comportamiento en una clase derivada, para el mismo mensaje de la clase base. Por lo tanto, la semántica o significado del mensaje se debe mantener. Si así no fuera, conviene definir un método diferente, con nombre diferente.
 
-##### **Clases Abstractas:**
+#### **Clases Abstractas:**
 
 Una clase es abstracta cuando no puede tener instancias en forma directa, habitualmente debido a que sus clases descendientes cubren todos los casos posibles.
 
 Cuando queramos indicar una clase que no es abstracta (que puede tener instancias) la llamaremos clase concreta.
 
-##### **Metodo Abstracto:**
+#### **Metodo Abstracto:**
 
 Un método es abstracto cuando no lo implementamos en una clase, pero sí deseamos que todas las clases descendientes puedan entender el mensaje.
 
@@ -104,9 +100,7 @@ Los objetos tienen:
   - La devolución del estado de un objeto, en su totalidad o parcialmente.
   - El envío de un mensaje desde el objeto receptor a otro objeto (delegación).
 
-#### **Relaciones entre Objetos:**
-
-##### **Dendencia y Asociacion:**
+#### **Dendencia y Asociacion:**
 
 Un objeto depende de otro cuando debe conocerlo para poder enviarle un mensaje.Todo objeto cliente depende de su servidor. La dependencia puede venir dada de tres maneras:
 
@@ -235,7 +229,7 @@ El principio de Sutitucion de Liskov enunciado por Barbara Liskov, plantea que l
 
 - Las subclases deben poder ser utilizadas a travez de la clase madre sin ningun problema
 
-**Los corolarios del principio de sustitución son:**
+*Los corolarios del principio de sustitución son:*
 
 - Las precondiciones de un método no pueden ser más estrictas en una subclase de lo que son en su ancestro.
 - Las postcondiciones de un método no pueden ser más laxas en una subclase de lo que son en su ancestro.
