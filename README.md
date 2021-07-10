@@ -23,12 +23,16 @@
     - [**El procedimiento del diseño por contrato**](#el-procedimiento-del-diseño-por-contrato)
   - [TDD](#tdd)
   - [Diseño orientado a objetos](#diseño-orientado-a-objetos)
-    - [SOLID](#solid)
-      - [SRP – Single Responsibility Principle](#srp--single-responsibility-principle)
-      - [OCP – Open/Closed Principle](#ocp--openclosed-principle)
-      - [LSP – Liskov Substitution Principle](#lsp--liskov-substitution-principle)
-      - [ISP – Interface Segregation Principle](#isp--interface-segregation-principle)
-      - [DIP – Dependency Inversion Principle](#dip--dependency-inversion-principle)
+    - [Acoplamiento](#acoplamiento)
+    - [Cohesión](#cohesión)
+    - [**SOLID**](#solid)
+      - [**SRP – Single Responsibility Principle**](#srp--single-responsibility-principle)
+      - [**OCP – Open/Closed Principle**](#ocp--openclosed-principle)
+      - [**LSP – Liskov Substitution Principle**](#lsp--liskov-substitution-principle)
+      - [**ISP – Interface Segregation Principle**](#isp--interface-segregation-principle)
+      - [**DIP – Dependency Inversion Principle**](#dip--dependency-inversion-principle)
+    - [**Cuando un diseño es malo**](#cuando-un-diseño-es-malo)
+      - [**Code Smells**](#code-smells)
   - [**Implementacion de POO en Java y Smalltalk**](#implementacion-de-poo-en-java-y-smalltalk)
     - [**Implementacion de Testing**](#implementacion-de-testing)
       - [**SUnit**](#sunit)
@@ -194,42 +198,87 @@ En general, suelen expresarse en forma de precondiciones o postcondiciones.
 
 ## Diseño orientado a objetos
 
-### SOLID
+### Acoplamiento
 
-#### SRP – Single Responsibility Principle
+El acoplamiento se refiere al grado de interdependencia que tienen dos unidades de software entre sí, entendiendo por unidades de software: clases, subtipos, métodos, módulos, funciones, bibliotecas, etc.
 
-Toda clase debe tener una unica responsibilidad
+Si dos unidades de software son completamente independientes la una de la otra, decimos que están desacopladas.
 
-#### OCP – Open/Closed Principle
+### Cohesión
 
-Las Clases deben estar abiertas para las extensiones pero cerradas para su modificacion
+La cohesión de software es el grado en que elementos diferentes de un sistema permanecen unidos para alcanzar un mejor resultado que si trabajaran por separado. Se refiere a la forma en que podemos agrupar diversas unidades de software para crear una unidad mayor.
 
-El principio abierto-cerrado enunciado por Bertrand Meyer [Meyer 1988], expresa que las clases tienen que estar cerradas para modificación, pero abiertas para reutilización.
+### **SOLID**
+
+#### **SRP – Single Responsibility Principle**
+
+> Toda clase debe tener una unica responsibilidad
+
+Este principio fue enunciado por Meilir Page-Jones. Según el mismo, **cada clase debería tener una única responsabilidad.** En general se lo alinea con el tema de cohesión, que implica que cada clase debe corresponder a una única abstracción.
+
+Un corolario importante de este principio es el postulado de que **cada clase tiene que tener una sola razón para cambiar**
+
+#### **OCP – Open/Closed Principle**
+
+> Las Clases deben estar abiertas para las extensiones pero cerradas para su modificacion
+
+El principio abierto-cerrado enunciado por Bertrand Meyer, expresa que las **clases tienen que estar cerradas para modificación, pero abiertas para reutilización.**
 
 Esto es, habría que tratar de no modificar clases existentes, ya probadas, estables y en producción. Pero esto no impide que dichas clases puedan reutilizarse desde otras.
 
-#### LSP – Liskov Substitution Principle
+- Se debe poder cambiar el comportamiento sin modificar el codigo ya existente
+- Se puede lograr utilizando herencia o delegacion
 
-El principio de Sutitucion de Liskov enunciado por Barbara Liskov [Liskov 1988], plantea que los subtipos deben ser sustituibles en todas partes por sus tipos base.
+#### **LSP – Liskov Substitution Principle**
+
+El principio de Sutitucion de Liskov enunciado por Barbara Liskov, plantea que los subtipos deben ser sustituibles en todas partes por sus tipos base. La aplicación más elemental de este principio es el chequeo de la relación **“es un”**
 
 - Las subclases deben poder ser utilizadas a travez de la clase madre sin ningun problema
 
-Los corolarios del principio de sustitución son:
+**Los corolarios del principio de sustitución son:**
 
 - Las precondiciones de un método no pueden ser más estrictas en una subclase de lo que son en su ancestro.
 - Las postcondiciones de un método no pueden ser más laxas en una subclase de lo que son en su ancestro.
 - Los invariantes de una clase deben ser al menos los mismos de la clase ancestro.
 - Un método debe lanzar los mismos tipos de excepciones que en la clase ancestro, o a lo sumo excepciones derivadas de aquéllas.
 
-#### ISP – Interface Segregation Principle
+#### **ISP – Interface Segregation Principle**
 
-Los clientes no deben ser forzados a depender de metodos que no utilizan
+> Los clientes no deben ser forzados a depender de metodos que no utilizan
 
-- muchas intefaces especificas
+EL principio de segregación de la interfaz pretende que los clientes de una clase no dependan de métodos que no utilizan.
 
-#### DIP – Dependency Inversion Principle
+Así, si una clase tiene una referencia a, o hereda de, otra clase, de la cual sólo tiene sentido que utilice algunos de sus métodos, pero no todos, lo mejor sería separar la clase en cuestión en más de una, y colocar en una de ellas los métodos que utilice ese cliente.
+
+#### **DIP – Dependency Inversion Principle**
 
 Se debe depender de las abtracciones y no de las implementaciones
+
+- Los módulos de alto nivel no deberían depender de módulos de bajo nivel. Ambos deberían depender de abstracciones.
+- Las abstracciones no deberían depender de los detalles. Los detalles deberían depender de las abstracciones.
+
+El objetivo del principio de Inversión de dependencia consiste en reducir las dependencias entre los módulos del código, es decir, alcanzar un **bajo acoplamiento** de las clases.
+
+### **Cuando un diseño es malo**
+
+- **Rigidez:** dificultad de cambiar, porque cada vez que se modifica algo, esto provoca una secuencia interminable de cambios.
+- **Fragilidad:** cada cambio provoca problemas en partes del código que no tienen que ver con el mismo.
+- Se hace muy difícil descomponer el sistema en partes reutilizables.
+- El ciclo editar-compilar-probar lleva mucho tiempo.
+- **Complejidad innecesaria:** estructuras de código que no se necesitan, aunque puedan servir en el futuro.
+- **Repetición innecesaria:** no se reutiliza, sino que se ha copiado partes de código en varios lugares.
+- **Opacidad:** el programador se expresa – mediante el código – de formas ininteligibles.
+
+#### **Code Smells**
+
+- Ciclos muy anidados, que se deberían convertir en métodos.
+- Código duplicado, que causa modificaciones paralelas.
+- Métodos complejos o muy largos.
+- Clases con varias responsabilidades, o muy grandes.
+- Abundancia de sentencias switch o if anidadas.
+- Largas secuencias de llamadas sucesivas a métodos.
+- Demasiados chequeos de referencias nulas.
+- Clases sin comportamiento, que sólo tienen atributos y las propiedades que permiten
 
 ## **Implementacion de POO en Java y Smalltalk**
 
