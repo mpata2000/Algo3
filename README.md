@@ -19,10 +19,10 @@
     - [**Postcondiciones**](#postcondiciones)
     - [**Invariantes**](#invariantes)
     - [**El procedimiento del diseño por contrato**](#el-procedimiento-del-diseño-por-contrato)
-  - [TDD](#tdd)
-  - [Diseño orientado a objetos](#diseño-orientado-a-objetos)
-    - [Acoplamiento](#acoplamiento)
-    - [Cohesión](#cohesión)
+  - [**TDD**](#tdd)
+  - [**Diseño orientado a objetos**](#diseño-orientado-a-objetos)
+    - [**Acoplamiento**](#acoplamiento)
+    - [**Cohesión**](#cohesión)
     - [**SOLID**](#solid)
       - [**SRP – Single Responsibility Principle**](#srp--single-responsibility-principle)
       - [**OCP – Open/Closed Principle**](#ocp--openclosed-principle)
@@ -187,18 +187,18 @@ En general, suelen expresarse en forma de precondiciones o postcondiciones.
 
 ![Pasos deDiseño por Contrato](./Images/DisenioPorContratoDiagrama.png)
 
-## TDD
+## **TDD**
 
 
-## Diseño orientado a objetos
+## **Diseño orientado a objetos**
 
-### Acoplamiento
+### **Acoplamiento**
 
 El acoplamiento se refiere al grado de interdependencia que tienen dos unidades de software entre sí, entendiendo por unidades de software: clases, subtipos, métodos, módulos, funciones, bibliotecas, etc.
 
 Si dos unidades de software son completamente independientes la una de la otra, decimos que están desacopladas.
 
-### Cohesión
+### **Cohesión**
 
 La cohesión de software es el grado en que elementos diferentes de un sistema permanecen unidos para alcanzar un mejor resultado que si trabajaran por separado. Se refiere a la forma en que podemos agrupar diversas unidades de software para crear una unidad mayor.
 
@@ -263,7 +263,7 @@ El objetivo del principio de Inversión de dependencia consiste en reducir las d
 - **Repetición innecesaria:** no se reutiliza, sino que se ha copiado partes de código en varios lugares.
 - **Opacidad:** el programador se expresa – mediante el código – de formas ininteligibles.
 
-#### **Code Smells**
+#### **Code Smells:**
 
 - Ciclos muy anidados, que se deberían convertir en métodos.
 - Código duplicado, que causa modificaciones paralelas.
@@ -272,7 +272,11 @@ El objetivo del principio de Inversión de dependencia consiste en reducir las d
 - Abundancia de sentencias switch o if anidadas.
 - Largas secuencias de llamadas sucesivas a métodos.
 - Demasiados chequeos de referencias nulas.
-- Clases sin comportamiento, que sólo tienen atributos y las propiedades que permiten
+- Clases sin comportamiento, que sólo tienen atributos y las propiedades que permiten acceder a ellos.
+- Atributos no encapsulados.
+- Métodos que usan más características de otras clases que de la suya propia.
+- Uso de tipos primitivos o básicos para conceptos diversos.
+- Comentarios que explican código difícil de leer.
 
 ## **Implementacion de POO en Java y Smalltalk**
 
